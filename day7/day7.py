@@ -24,10 +24,16 @@ while LIVES:
     char = input("Guess a character: ")
     if char not in guess_chars:
         guess_chars.add(char)
-        print(f"{char} in word")
     else:
         print(f"{char} already used.")
         LIVES -= 1
+        print(f"Lives left: {LIVES}")
+        continue
     if char not in choice_word:
         LIVES -= 1
         print(f"{char} not in wanted word")
+        print(f"Lives left: {LIVES}")
+    else:
+        print(f"Correct character guessed.")
+if not LIVES:
+    print("You died, game over.")
